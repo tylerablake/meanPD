@@ -1,0 +1,13 @@
+<h1>{{name}}</h1>
+<ul>
+  <li>Age: {{age}}</li>
+  <li>Email: {{email}}</li>
+  <li>Address: {{address.street}} {{address.city}} {{address.state}} {{address.zip}}</li>
+</ul>
+<p>Click to reveal my true identity!</p>
+<button (click)="onClick()">Click Here</button>
+
+<h3>Hobbies</h3>
+<ul>
+  <li *ngFor="let hobby of hobbies; let i = index"> {{i+1}} {{hobby}} </li>
+</ul>
