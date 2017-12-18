@@ -7,6 +7,41 @@
 <p>Click to reveal my true identity!</p>
 <button (click)="onClick()">Click Here</button>
 
+
+<button (click)="toggleEdit()">Edit User</button>
+<div *ngIf=isEdit>
+    <h1>Edit User</h1>
+    <form>
+        <div>
+          <label for="name">Name:</label><br>
+          <input type="text" [(ngModel)]='name' name='name'>
+        </div>
+        <div>
+          <label for="age">Age:</label>
+          <input type="text" [(ngModel)]='age' name='age'>
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input type="text" [(ngModel)]='email' name='email'>
+        </div>
+        <div>
+          <label for="street">Street:</label>
+          <input type="text" [(ngModel)]='address.street' name='street'>
+        </div>
+        <div>
+          <label for="city">City:</label>
+          <input type="text" [(ngModel)]='address.city' name='city'>
+        </div>
+        <div>
+          <label for="state">State:</label>
+          <input type="text" [(ngModel)]='address.state' name='state'>
+        </div>
+      </form>
+</div>
+
+
+
+
 <h3>Hobbies</h3>
   <div>
     <label for="hobby">Hobby</label>
@@ -19,3 +54,9 @@
     <button (click)="removeHobby(hobby)">Delete</button>
   </li>
 </ul>
+
+<h1>Posts</h1>
+<div *ngFor="let post of posts">
+  <h4>{{post.title}}</h4>
+  <p>{{post.body}}</p>
+</div>

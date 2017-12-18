@@ -1,19 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { EHOSTUNREACH } from 'constants';
+import { DataService} from '../../services/data.service';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
+
 export class UserComponent implements OnInit {
 name:string;
 age: number;
 email: string;
 address:Address;
 hobbies:string[];
+posts:Post[];
+isEdit:boolean;
 
-  constructor() {
+  constructor(private dataService:DataService) {
     console.log('Constructor ran..')
    }
 
@@ -29,6 +33,11 @@ hobbies:string[];
       zip : '40222'
     };
     this.hobbies = ['Eat', 'Sleep', 'Code'];
+  
+    this.dataService.getPosts().subscribe((posts) => {
+     this.posts = posts;
+    });    
+    this.isEdit = false;
   }
 
   onClick(){
@@ -51,6 +60,9 @@ hobbies:string[];
     }
   }
 
+  toggleEdit(){
+    this.isEdit = !this.isEdit;
+  }
 
 }
 
@@ -60,4 +72,11 @@ interface Address{
   city:string,
   state:string,
   zip:string
+}
+
+interface Post{
+  id:number,
+  title:string,
+  body:string,
+  userId:number
 }
