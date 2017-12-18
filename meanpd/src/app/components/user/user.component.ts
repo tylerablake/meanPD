@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EHOSTUNREACH } from 'constants';
 
 @Component({
   selector: 'app-user',
@@ -34,6 +35,22 @@ hobbies:string[];
     console.log('Real identity revealed!');
     this.name = 'Tyler Blake';
   }
+
+  addHobby(hobby){
+    console.log('Adding hobby ' + hobby);
+    this.hobbies.push(hobby);
+    return false;
+  }
+
+  removeHobby(hobby){
+    console.log('Removing hobby ' + hobby);
+    for(let i = 0;i < this.hobbies.length;i++){
+      if(this.hobbies[i] == hobby){
+        this.hobbies.splice(i, 1);
+      }
+    }
+  }
+
 
 }
 

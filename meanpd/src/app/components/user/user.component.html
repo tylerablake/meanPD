@@ -8,6 +8,14 @@
 <button (click)="onClick()">Click Here</button>
 
 <h3>Hobbies</h3>
+  <div>
+    <label for="hobby">Hobby</label>
+    <input type="text" #hobby>
+    <button (click)="addHobby(hobby.value)">Add Hobby</button>
+  </div>
 <ul>
-  <li *ngFor="let hobby of hobbies; let i = index"> {{i+1}} {{hobby}} </li>
+  <li 
+  *ngFor="let hobby of hobbies; let i = index"> {{i+1}} {{hobby}} 
+    <button (click)="removeHobby(hobby)">Delete</button>
+  </li>
 </ul>
