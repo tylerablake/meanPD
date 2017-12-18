@@ -1,52 +1,56 @@
-<h1>{{name}}</h1>
+<h4>{{name}}</h4>
 <ul>
   <li>Age: {{age}}</li>
   <li>Email: {{email}}</li>
   <li>Address: {{address.street}} {{address.city}} {{address.state}} {{address.zip}}</li>
 </ul>
-<p>Click to reveal my true identity!</p>
 <button (click)="onClick()">Click Here</button>
+<p>Click to reveal my true identity!</p>
 
-
+<hr>
+<p>Toggle to edit user information and see Angulars 2 way binding!</p>
 <button (click)="toggleEdit()">Edit User</button>
 <div *ngIf=isEdit>
     <h1>Edit User</h1>
     <form>
         <div>
-          <label for="name">Name:</label><br>
+          <label for="name">Name: </label>
           <input type="text" [(ngModel)]='name' name='name'>
         </div>
         <div>
-          <label for="age">Age:</label>
+          <label for="age">Age: </label>
           <input type="text" [(ngModel)]='age' name='age'>
         </div>
         <div>
-          <label for="email">Email:</label>
+          <label for="email">Email: </label>
           <input type="text" [(ngModel)]='email' name='email'>
         </div>
         <div>
-          <label for="street">Street:</label>
+          <label for="street">Street: </label>
           <input type="text" [(ngModel)]='address.street' name='street'>
         </div>
         <div>
-          <label for="city">City:</label>
+          <label for="city">City: </label>
           <input type="text" [(ngModel)]='address.city' name='city'>
         </div>
         <div>
-          <label for="state">State:</label>
+          <label for="state">State: </label>
           <input type="text" [(ngModel)]='address.state' name='state'>
+        </div>
+        <div>
+          <label for="zip">Zip: </label>
+          <input type="text" [(ngModel)]="address.zip" name='zip'>
         </div>
       </form>
 </div>
 
-
-
-
+<hr>
+<p>Interact to add/remove hobbies!</p>
 <h3>Hobbies</h3>
   <div>
     <label for="hobby">Hobby</label>
-    <input type="text" #hobby>
-    <button (click)="addHobby(hobby.value)">Add Hobby</button>
+    <input id="addHobbyButton" type="text" [(ngModel)]='addedHobby'>
+    <button (click)="addHobby(addedHobby)">Add Hobby</button>
   </div>
 <ul>
   <li 
@@ -55,6 +59,9 @@
   </li>
 </ul>
 
+<hr>
+<p>Pulling data in from API call </p>
+<b>http://jsonplaceholder.typicode.com/posts</b>
 <h1>Posts</h1>
 <div *ngFor="let post of posts">
   <h4>{{post.title}}</h4>

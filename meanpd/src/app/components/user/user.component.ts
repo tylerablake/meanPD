@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EHOSTUNREACH } from 'constants';
+// import { EHOSTUNREACH } from 'constants';
 import { DataService} from '../../services/data.service';
 
 @Component({
@@ -16,6 +16,7 @@ address:Address;
 hobbies:string[];
 posts:Post[];
 isEdit:boolean;
+addedHobby:string;
 
   constructor(private dataService:DataService) {
     console.log('Constructor ran..')
@@ -38,6 +39,7 @@ isEdit:boolean;
      this.posts = posts;
     });    
     this.isEdit = false;
+    this.addedHobby = '';
   }
 
   onClick(){
@@ -48,6 +50,7 @@ isEdit:boolean;
   addHobby(hobby){
     console.log('Adding hobby ' + hobby);
     this.hobbies.push(hobby);
+    this.addedHobby = '';
     return false;
   }
 
