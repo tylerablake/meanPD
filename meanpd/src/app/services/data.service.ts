@@ -9,8 +9,8 @@ export class DataService {
     console.log('DataService connected..');
    }
 
-   getPosts(){
-     return this.http.get('http://jsonplaceholder.typicode.com/posts')
+   getUsers(){
+     return this.http.get('http://jsonplaceholder.typicode.com/users')
      .map(res => res.json());
 
    }

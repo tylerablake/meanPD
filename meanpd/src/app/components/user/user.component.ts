@@ -14,7 +14,7 @@ age: number;
 email: string;
 address:Address;
 hobbies:string[];
-posts:Post[];
+users:User[];
 isEdit:boolean;
 addedHobby:string;
 
@@ -35,8 +35,8 @@ addedHobby:string;
     };
     this.hobbies = ['Eat', 'Sleep', 'Code'];
   
-    this.dataService.getPosts().subscribe((posts) => {
-     this.posts = posts;
+    this.dataService.getUsers().subscribe((users) => {
+     this.users = users;
     });    
     this.isEdit = false;
     this.addedHobby = '';
@@ -77,9 +77,9 @@ interface Address{
   zip:string
 }
 
-interface Post{
+interface User{
   id:number,
-  title:string,
-  body:string,
-  userId:number
+  name:string,
+  username:string,
+  phone:string
 }
